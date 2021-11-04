@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main()
+{
+    //Enter info
+    cout << "Enter your grades in English and Math respectfully (0 - 100)\n";
+    int eng, math;
+    std::cin >> eng;
+    cout << "\n" << endl;
+    std::cin >> math;
+
+    //Calculate
+    int sum = eng + math;
+
+    //Cin.fail function
+    if (std::cin.fail())
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Are you okay? That's not a number!\n: ";
+    }
+    //In case user puts more than 100 (Cheating)
+    else if (sum > 200) {
+        cout << "Don't lie to yourself, it's bad" << endl;
+
+    }
+    
+    //Complete execution
+    else {
+        int avg = sum / 2;
+        int total = avg / 10;
+
+        switch (total) 
+        {
+         //Grade A
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        {
+            cout << "You got an average of " << avg << " with a grade of A" << endl;
+            break;
+        }
+        //Grade B
+        case 6:
+        {
+            cout << "You got an average of " << avg << " with a grade of B" << endl;
+            break;
+        }
+        //Grade C
+        case 5:
+        {
+            cout << "You got an average of " << avg << " with a grade of C" << endl;
+            break;
+        }
+        //Grade D
+        case 4:
+        {
+            cout << "You got an average of " << avg << " with a grade of D" << endl;
+            break;
+        }
+        default:
+        {
+            cout << "You got an average of " << avg << " with a grade of F" << endl;
+            break;
+        }
+        }
+    }
+}
